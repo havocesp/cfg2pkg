@@ -8,13 +8,11 @@ try:
     import yaml
 except:
     pass
-    
-try: 
+
+try:
     import xmltodict
 except:
     pass
-
-
 
 class DottedDict(dict):
 
@@ -23,10 +21,10 @@ class DottedDict(dict):
             return self[attr]
         except KeyError:
             raise AttributeError("'{}'".format(attr))
-   
+
     __setattr__ = dict.__setitem__
     __delattr__ = dict.__delitem__
-    
+
 class DateTimeEncoder(json.JSONEncoder):
     def default(self,obj):
         if hasattr(obj, 'isoformat'):
@@ -41,7 +39,7 @@ class DateTimeEncoder(json.JSONEncoder):
 
 
 def get_markup_path(directory, name, markup):
-    markup_path = os.path.join(directory, '{name}.{markup}'.format(name=name, markup=markup))       
+    markup_path = os.path.join(directory, '{name}.{markup}'.format(name=name, markup=markup))
     if os.path.isfile(markup_path):
         return markup_path
 
@@ -88,7 +86,7 @@ class SempaiLoader(object):
                    d = decoder.decode(f.read())
                 elif markup == 'xml':
                    x = xmltodict.parse(f.read())
-                   d = decoder.decode(json.dumps(x, indent=4, cls=DateTimeEncoder).replace("@", ""))       
+                   d = decoder.decode(json.dumps(x, indent=4, cls=DateTimeEncoder).replace("@", ""))
                 elif markup == 'yaml':
                    y = yaml.load(f.read())
                    d = decoder.decode(json.dumps(y, indent=4, cls=DateTimeEncoder))
@@ -100,9 +98,9 @@ class SempaiLoader(object):
                 '"{name}" was not imported as no {markup} parser is available on the system.'.format(name=self.markup_path, markup=markup))
         except:
             raise ImportError(
-                'Could not open "{name}".'.format(name=self.markup_path))    
-        
-        
+                'Could not open "{name}".'.format(name=self.markup_path))
+
+
         mod.__dict__.update(d)
 
         sys.modules[name] = mod

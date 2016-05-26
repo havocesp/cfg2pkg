@@ -8,14 +8,14 @@ except ImportError:
 with open('README.rst') as file_readme:
     readme = file_readme.read()
 
-setup(name='json-sempai',
+setup(name='config-sempai',
       version='0.4.0',
-      description='Use JSON files as if they\'re python modules',
+      description='Use JSON/YAML/XML files as if they\'re python modules',
       long_description=readme,
       author='Louis Taylor',
       author_email='kragniz@gmail.com',
       license='MIT',
-      url='https://github.com/kragniz/json-sempai',
+      url='https://github.com/wagoodman/config-sempai',
       classifiers=[
           'Intended Audience :: Developers',
           'License :: OSI Approved :: MIT License',
@@ -26,7 +26,5 @@ setup(name='json-sempai',
           'Programming Language :: Python :: 3.3',
           'Programming Language :: Python :: 3.4',
       ],
-      keywords='please don\'t use this library for anything',
-      packages=['jsonsempai', 'jsonsempai.tests'],
-      test_suite='jsonsempai.tests'
+      packages=['configsempai']
 )
