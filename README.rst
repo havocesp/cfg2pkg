@@ -1,3 +1,7 @@
+.. image:: https://www.quantifiedcode.com/api/v1/project/67bf89ed3f9b4664901b8e258b9d8a40/badge.svg
+  :target: https://www.quantifiedcode.com/app/project/67bf89ed3f9b4664901b8e258b9d8a40
+  :alt: Code issues
+  
 =============
 config-sempai
 =============
