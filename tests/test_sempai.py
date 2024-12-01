@@ -1,12 +1,13 @@
+# -*- coding:utf-8 -*-
 import os
 import shutil
 import sys
 import tempfile
 import unittest
 
-import configsempai
+import configsempai.sempai
 
-TEST_FILE = '''{
+TEST_FILE = """{
     "three": 3,
     "one": {
         "two": {
@@ -20,7 +21,7 @@ TEST_FILE = '''{
         ]}
     ],
     "lots_of_lists": [[{"in_da_list": true}]]
-}'''
+}"""
 
 # TODO: add yaml/xml tests
 
